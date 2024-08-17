@@ -7,7 +7,7 @@
 .first_page {
   display: flex;
   height: 100vh;
-  background-image: url(/src/assets/fondoa.jpg);
+  background-image: url(/public/fondoa.jpg);
   background-size: cover;
   background-position: center;
   justify-content: center;

@@ -3,31 +3,31 @@ export const menuA = createSlice({
   name: "planters",
   initialState: [
     {
-      img: "/src/assets/1.jpg",
+      img: "1.jpg",
       name: "Plantas Florales (Geranios)",
       cost: 3500,
       quantity: 0,
     },
     {
-      img: "/src/assets/2.jpg",
+      img: "2.jpg",
       name: "Plantas Florales (Anturios)",
       cost: 5500,
       quantity: 0,
     },
     {
-      img: "/src/assets/3.jpg",
+      img: "3.jpg",
       name: "Plantas Deserticas (Suculentas)",
       cost: 3700,
       quantity: 0,
     },
     {
-      img: "/src/assets/4.jpg",
+      img: "4.jpg",
       name: "Plantas Deserticas (Adenios)",
       cost: 5900,
       quantity: 0,
     },
     {
-      img: "/src/assets/5.jpg",
+      img: "5.jpg",
       name: "Plantas Carnivoras (Dionaea)",
       cost: 1100,
       quantity: 0,
