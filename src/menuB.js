@@ -27,7 +27,7 @@ export const menuB = createSlice({
       quantity: 0,
     },
     {
-      img: "/src/assets/11.jpg",
+      img: "11.jpg",
       name: "Externas Dracaena",
       cost: 600,
       quantity: 0,
