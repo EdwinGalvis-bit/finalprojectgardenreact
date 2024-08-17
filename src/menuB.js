@@ -3,31 +3,31 @@ export const menuB = createSlice({
   name: "exteriors",
   initialState: [
     {
-      img: "/7.jpg",
+      img: "/src/assets/7.jpg",
       name: "Externas Strelitzias",
       cost: 200,
       quantity: 0,
     },
     {
-      img: "/8.jpg",
+      img: "/src/assets/8.jpg",
       name: "Externas Sakura",
       cost: 400,
       quantity: 0,
     },
     {
-      img: "/9.jpg",
+      img: "/src/assets/9.jpg",
       name: "Externas Fraxinus",
       cost: 600,
       quantity: 0,
     },
     {
-      img: "/10.jpg",
+      img: "/src/assets/10.jpg",
       name: "Externas Arce",
       cost: 800,
       quantity: 0,
     },
     {
-      img: "/11.jpg",
+      img: "/src/assets/11.jpg",
       name: "Externas Dracaena",
       cost: 600,
       quantity: 0,

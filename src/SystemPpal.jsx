@@ -8,7 +8,7 @@ import { incrementQuantity, decrementQuantity } from "./menuA";
 
 const SystemPpal = () => {
   const [showItems, setShowItems] = useState(false);
-  const [numberOfPeople, setNumberOfPeople] = useState(1);
+  const [numberOfUnit, setNumberOfUnit] = useState(1);
   const venueItems = useSelector((state) => state.venue);
   const avItems = useSelector((state) => state.av);
   const mealsItems = useSelector((state) => state.meals);
@@ -45,9 +45,9 @@ const SystemPpal = () => {
   };
   const handleMealSelection = (index) => {
     const item = mealsItems[index];
-    if (item.selected && item.type === "mealForPeople") {
-      const newNumberOfPeople = item.selected ? numberOfPeople : 0;
-      dispatch(toggleMealSelection(index, newNumberOfPeople));
+    if (item.selected && item.type === "mealForUnit") {
+      const newNumberOfUnit = item.selected ? numberOfUnit : 0;
+      dispatch(toggleMealSelection(index, newNumberOfUnit));
     } else {
       dispatch(toggleMealSelection(index));
     }
@@ -70,8 +70,8 @@ const SystemPpal = () => {
     mealsItems.forEach((item) => {
       if (item.selected) {
         const itemForDisplay = { ...item, type: "flowerpots" };
-        if (item.numberOfPeople) {
-          itemForDisplay.numberOfPeople = numberOfPeople;
+        if (item.numberOfUnit) {
+          itemForDisplay.numberOfUnit = numberOfUnit;
         }
         items.push(itemForDisplay);
       }
@@ -100,13 +100,13 @@ const SystemPpal = () => {
                   <td>{item.name}</td>
                   <td>${item.cost}</td>
                   <td>
-                    {item.type === "flowerpots" || item.numberOfPeople
-                      ? ` For ${numberOfPeople} people`
+                    {item.type === "flowerpots" || item.numberOfUnit
+                      ? ` For ${numberOfUnit} unit`
                       : item.quantity}
                   </td>
                   <td>
-                    {item.type === "flowerpots" || item.numberOfPeople
-                      ? `${item.cost * numberOfPeople}`
+                    {item.type === "flowerpots" || item.numberOfUnit
+                      ? `${item.cost * numberOfUnit}`
                       : `${item.cost * item.quantity}`}
                   </td>
                 </tr>
@@ -130,7 +130,7 @@ const SystemPpal = () => {
     } else if (section === "flowerpots") {
       mealsItems.forEach((item) => {
         if (item.selected) {
-          totalCost += item.cost * numberOfPeople;
+          totalCost += item.cost * numberOfUnit;
         }
       });
     }
@@ -140,7 +140,7 @@ const SystemPpal = () => {
   const avTotalCost = calculateTotalCost("exteriors");
   const mealsTotalCost = calculateTotalCost("flowerpots");
   const navigateToProducts = (idType) => {
-    if (idType == "#venue" || idType == "#addons" || idType == "#meals") {
+    if (idType == "#planters" || idType == "#trees" || idType == "#flowerpots") {
       if (showItems) {
         setShowItems(!showItems);
       }
@@ -157,13 +157,13 @@ const SystemPpal = () => {
         <div className="company_logo">The Garden Of Eden</div>
         <div className="left_navbar">
           <div className="nav_links">
-            <a href="#venue" onClick={() => navigateToProducts("#venue")}>
+            <a href="#planters" onClick={() => navigateToProducts("#planters")}>
               Plantas Tipo A
             </a>
-            <a href="#addons" onClick={() => navigateToProducts("#addons")}>
+            <a href="#trees" onClick={() => navigateToProducts("#trees")}>
               Plantas Tipo B
             </a>
-            <a href="#meals" onClick={() => navigateToProducts("#meals")}>
+            <a href="#flowerpots" onClick={() => navigateToProducts("#flowerpots")}>
               Materas
             </a>
           </div>
@@ -259,10 +259,10 @@ const SystemPpal = () => {
                   </div>
                 ))}
               </div>
-              <div className="total_cost">Costo Total A: ${venueTotalCost}</div>
+              <div className="total_cost">COSTO TOTAL A: ${venueTotalCost}</div>
             </div>
             {/*Necessary Add-ons*/}
-            <div id="addons" className="venue_container container_main">
+            <div id="trees" className="venue_container container_main">
               <div className="text">
                 <h1>Segundo Grupo de Plantas</h1>
               </div>
@@ -294,7 +294,7 @@ const SystemPpal = () => {
                   </div>
                 ))}
               </div>
-              <div className="total_cost">Costo Total B: ${avTotalCost}</div>
+              <div className="total_cost">COSTO TOTAL B: ${avTotalCost}</div>
             </div>
             {/* Meal Section */}
             <div id="flowerpots" className="venue_container container_main">
@@ -303,16 +303,16 @@ const SystemPpal = () => {
               </div>
               <div className="input-container venue_selection">
                 <div className="input-container venue_selection">
-                  <label htmlFor="numberOfPeople">
+                  <label htmlFor="numberOfUnit">
                     <h3>Grupos de Materas:</h3>
                   </label>
                   <input
                     type="number"
                     className="input_box5"
-                    id="numberOfPeople"
-                    value={numberOfPeople}
+                    id="numberOfUnit"
+                    value={numberOfUnit}
                     onChange={(e) =>
-                      setNumberOfPeople(parseInt(e.target.value))
+                      setNumberOfUnit(parseInt(e.target.value))
                     }
                     min="1"
                   />
@@ -338,7 +338,7 @@ const SystemPpal = () => {
                   </div>
                 ))}
               </div>
-              <div className="total_cost">Costo Total C: ${mealsTotalCost}</div>
+              <div className="total_cost">COSTO TOTAL C: ${mealsTotalCost}</div>
             </div>
           </div>
         ) : (
